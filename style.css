@@ -1,3 +1,4 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -5,115 +6,138 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+/* BACKGROUND */
 body {
-    height: 100vh;
-    background: linear-gradient(-45deg, #1d2b64, #f8cdda, #16222a, #3a6073);
-    background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    padding: 20px;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
+/* MAIN CONTAINER */
 .container {
-    width: 90%;
-    max-width: 800px;
-    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
+/* TITLE */
 .app-title {
     text-align: center;
     margin-bottom: 25px;
-    font-size: 2rem;
-    letter-spacing: 2px;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-/* SUMMARY CARDS */
+/* SUMMARY SECTION */
 .summary {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
     margin-bottom: 25px;
-    gap: 15px;
 }
 
 .card {
     flex: 1;
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+.income-card {
+    background: rgba(0, 200, 83, 0.6);
 }
 
-.income-card { background: rgba(46, 204, 113, 0.3); }
-.expense-card { background: rgba(231, 76, 60, 0.3); }
-.savings-card { background: rgba(52, 152, 219, 0.3); }
+.expense-card {
+    background: rgba(255, 82, 82, 0.6);
+}
 
-/* FORM */
-.form-section {
-    margin-bottom: 25px;
+.savings-card {
+    background: rgba(33, 150, 243, 0.6);
+}
+
+/* FORM SECTION */
+.form-section h2,
+.history-section h2 {
+    margin-bottom: 15px;
 }
 
 form {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
-select, input {
-    flex: 1;
+/* INPUTS */
+select,
+input {
     padding: 10px;
     border-radius: 10px;
     border: none;
     outline: none;
+    flex: 1;
+    min-width: 120px;
 }
 
+/* BUTTON */
 button {
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    background: #ffffff;
-    color: #333;
+    background: white;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 button:hover {
-    background: #000;
-    color: #fff;
+    background: #ddd;
 }
 
-/* HISTORY */
-.history-section ul {
+/* TRANSACTION LIST */
+#transaction-list {
     list-style: none;
-    max-height: 200px;
-    overflow-y: auto;
+    margin-top: 10px;
 }
 
-.history-section li {
-    background: rgba(255,255,255,0.15);
+#transaction-list li {
+    background: rgba(255, 255, 255, 0.15);
     padding: 10px;
-    margin-bottom: 10px;
     border-radius: 10px;
-    animation: fadeIn 0.4s ease;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* ============================= */
+/* 📱 MOBILE FIX */
+/* ============================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 20px;
+    }
+
+    .summary {
+        flex-direction: column;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    select,
+    input,
+    button {
+        width: 100%;
+    }
+
 }
