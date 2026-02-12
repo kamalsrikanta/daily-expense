@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FinanceFlow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="app-title">FinanceFlow</h1>
+
+    <!-- SUMMARY CARDS -->
+    <div class="summary">
+        <div class="card income-card">
+            <h3>Income</h3>
+            <p>₹<span id="income">0.00</span></p>
+        </div>
+
+        <div class="card expense-card">
+            <h3>Expense</h3>
+            <p>₹<span id="expense">0.00</span></p>
+        </div>
+
+        <div class="card savings-card">
+            <h3>Savings</h3>
+            <p>₹<span id="savings">0.00</span></p>
+        </div>
+    </div>
+
+    <!-- FORM SECTION -->
+    <div class="form-section">
+        <h2>Add Transaction</h2>
+
+        <form id="transaction-form">
+
+            <select id="type" required>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+
+            <select id="category" required>
+                <option value="Salary">Salary</option>
+                <option value="Food">Food</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Travel">Travel</option>
+                <option value="Daily Needs">Daily Needs</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <input 
+                type="number" 
+                id="amount" 
+                placeholder="Enter amount"
+                step="0.01"
+                min="0.01"
+                required
+            >
+
+            <button type="submit">Add</button>
+
+        </form>
+    </div>
+
+    <!-- TRANSACTION HISTORY -->
+    <div class="history-section">
+        <h2>Transaction History</h2>
+        <ul id="transaction-list"></ul>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
